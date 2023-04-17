@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\Owners\Destroy as OwnerDestroy;
+use App\Http\Controllers\Owners\Index as OwnerIndex;
+use App\Http\Controllers\Owners\Show as OwnerShow;
+use App\Http\Controllers\Owners\Store as OwnerStore;
+use App\Http\Controllers\Owners\Update as OwnerUpdate;
 use App\Http\Controllers\Pets\Destroy as PetDestroy;
 use App\Http\Controllers\Pets\Index as PetIndex;
 use App\Http\Controllers\Pets\Show as PetShow;
@@ -15,3 +20,9 @@ Route::get('/pets', PetIndex::class);
 Route::get('/pets/{pet}', PetShow::class);
 Route::post('/pets', PetStore::class);
 Route::put('/pets/{pet}', PetUpdate::class);
+
+Route::delete('/owners/{owner}', OwnerDestroy::class);
+Route::get('/owners', OwnerIndex::class);
+Route::get('/owners/{owner}', OwnerShow::class);
+Route::post('/owners', OwnerStore::class);
+Route::put('/owners/{owner}', OwnerUpdate::class);
