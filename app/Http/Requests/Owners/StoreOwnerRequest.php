@@ -39,6 +39,7 @@ class StoreOwnerRequest extends FormRequest
             'registration_physical_person.unique' => 'Registro já existe',
             'birth_date.required' => 'Informe a data de nascimento',
             'birth_date.date_format' => 'Formato inválido',
+            'gender.required' => 'Informe o gênero',
             'gender' => 'Opção inválida',
         ];
     }

@@ -32,6 +32,28 @@ class StoreTest extends TestCase
         $response->assertSee($stubOwner->gender->value);
     }
 
+    public function test_name_general_record_registration_physical_person_birth_date_gender_are_required(): void
+    {
+        $owner = Owner::factory()->create();
+
+        $response = $this->post('/api/owners', []);
+
+        $response->assertStatus(Response::HTTP_OK);
+        $response->assertSeeText('Revise os campos');
+        $response->assertSeeTextInOrder([
+            'name',
+            'Informe o nome',
+            'general_record',
+            'Informe o RG',
+            'registration_physical_person',
+            'Informe o CPF',
+            'birth_date',
+            'Informe a data de nascimento',
+            'gender',
+            'Informe o g\u00eanero', // g\u00eanero = gênero
+        ]);
+    }
+
     public function test_general_record_and_registration_physical_person_are_unique(): void
     {
         $owner = Owner::factory()->create();
