@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Pets;
 
+use App\Http\Resources\Owners\OwnerResource;
 use App\Http\Resources\PetTypes\PetTypeResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -19,6 +20,7 @@ class PetResource extends JsonResource
             'updated_at' => $this->updated_at->format('d/m/Y'),
             'deleted_at' => $this->deleted_at?->format('d/m/Y'),
             'petType' => PetTypeResource::make($this->whenLoaded('petType')),
+            'owner' => OwnerResource::make($this->whenLoaded('owner')),
         ];
     }
 }

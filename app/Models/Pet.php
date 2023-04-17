@@ -18,6 +18,7 @@ class Pet extends Model
         'name',
         'description',
         'pet_type_id',
+        'owner_id',
     ];
 
     protected $dates = [
@@ -29,5 +30,10 @@ class Pet extends Model
     public function petType(): BelongsTo
     {
         return $this->belongsTo(PetType::class);
+    }
+
+    public function owner(): BelongsTo
+    {
+        return $this->belongsTo(Owner::class);
     }
 }

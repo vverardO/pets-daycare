@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Pets;
 
+use App\Models\Owner;
 use App\Models\Pet;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Response;
@@ -13,6 +14,7 @@ class IndexTest extends TestCase
 
     public function test_getting_first_15_pets(): void
     {
+        Owner::factory()->count(5)->create();
         $petsName = Pet::factory(15)
             ->create()
             ->pluck('name')

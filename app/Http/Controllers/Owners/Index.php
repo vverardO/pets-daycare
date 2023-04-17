@@ -12,7 +12,7 @@ class Index extends Controller
     public function __invoke(): ResourceCollection
     {
         return new OwnerResourceCollection(
-            Owner::paginate()
+            Owner::with(['pets'])->paginate()
         );
     }
 }

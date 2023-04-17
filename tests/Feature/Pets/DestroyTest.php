@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Pets;
 
+use App\Models\Owner;
 use App\Models\Pet;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Response;
@@ -13,6 +14,7 @@ class DestroyTest extends TestCase
 
     public function test_destroy_one_pet(): void
     {
+        Owner::factory()->create();
         $pet = Pet::factory()->create();
 
         $response = $this->delete("/api/pets/{$pet->id}");
