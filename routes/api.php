@@ -11,6 +11,11 @@ use App\Http\Controllers\Pets\Show as PetShow;
 use App\Http\Controllers\Pets\Store as PetStore;
 use App\Http\Controllers\Pets\Update as PetUpdate;
 use App\Http\Controllers\PetTypes\Index as PetTypeIndex;
+use App\Http\Controllers\Users\Destroy as UserDestroy;
+use App\Http\Controllers\Users\Index as UserIndex;
+use App\Http\Controllers\Users\Show as UserShow;
+use App\Http\Controllers\Users\Store as UserStore;
+use App\Http\Controllers\Users\Update as UserUpdate;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/pet-types', PetTypeIndex::class);
@@ -26,3 +31,9 @@ Route::get('/owners', OwnerIndex::class);
 Route::get('/owners/{owner}', OwnerShow::class);
 Route::post('/owners', OwnerStore::class);
 Route::put('/owners/{owner}', OwnerUpdate::class);
+
+Route::delete('/users/{user}', UserDestroy::class);
+Route::get('/users', UserIndex::class);
+Route::get('/users/{user}', UserShow::class);
+Route::post('/users', UserStore::class);
+Route::put('/users/{user}', UserUpdate::class);

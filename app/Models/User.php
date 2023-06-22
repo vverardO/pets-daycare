@@ -14,6 +14,7 @@ class User extends Authenticatable
     use Notifiable;
 
     protected $fillable = [
+        'id',
         'name',
         'email',
         'password',
@@ -21,10 +22,5 @@ class User extends Authenticatable
 
     protected $hidden = [
         'password',
-        'remember_token',
-    ];
-
-    protected $casts = [
-        'email_verified_at' => 'datetime',
     ];
 }
