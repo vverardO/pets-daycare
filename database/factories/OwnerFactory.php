@@ -26,7 +26,7 @@ class OwnerFactory extends Factory
         $document = str_shuffle('0123456789');
 
         return [
-            'name' => fake()->unique()->name(),
+            'name' => fake()->unique()->firstName(),
             'gender' => $gender,
             'general_record' => $document,
             'birth_date' => fake()->date(),
